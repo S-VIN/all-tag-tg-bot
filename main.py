@@ -16,7 +16,7 @@ async def echo(client, message):
             usernames_string += '@' + member.user.username + ' '
     print(usernames_string)
 
-    if 'all' in message.text:
+    if '@all' in message.text:
         await app.send_message(chat_id=message.chat.id, text=usernames_string)
         print(message.text)
 
