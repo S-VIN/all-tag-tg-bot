@@ -6,7 +6,7 @@ COPY requirements.txt /home/
 WORKDIR /home
 
 COPY main.py ./
-COPY settings.py ./
+COPY config.py ./
 RUN pip install -r /home/requirements.txt
 
 CMD [ "python", "./main.py"]

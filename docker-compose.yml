@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  server:
+    image: localhost:5000/vinstp/all-tag-tg:latest
+
+    secrets:
+      - source: all_tag_tg_api_id
+        target: /run/secrets/all_tag_tg_api_id
+      - source: all_tag_tg_token
+        target: /run/secrets/all_tag_tg_token
+      - source: all_tag_tg_api_hash
+        target: /run/secrets/all_tag_tg_api_hash
+
+    volumes:
+      - "/mnt/oldschool/import:/home/media_from_dialogs"
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+
+secrets:
+  all_tag_tg_api_id:
+    external: true
+  all_tag_tg_token:
+    external: true
+  all_tag_tg_api_hash:
+    external: true
